@@ -2,10 +2,12 @@ import subprocess
 import os
 import time
 
+GIT_TOKEN = os.getenv("GIT_TOKEN")
+
 bots = [
-    ("Stree", "https://github.com/Sinchu-XD/Stree", "python3 Main.py"),
-    ("Paglu", "https://github.com/Sinchu-XD/Paglu", "python3 Main.py"),
-    ("Posting", "https://github.com/Sinchu-XD/Posting", "python3 Posting.py"),
+    ("Stree", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Stree", "python3 Main.py"),
+    ("Paglu", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Paglu", "python3 Main.py"),
+    ("Posting", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Posting", "python3 Posting.py"),
 ]
 
 processes = []
@@ -13,7 +15,10 @@ processes = []
 def prepare_repo(name, repo):
     if not os.path.isdir(name):
         print(f"📥 Cloning {name}")
-        subprocess.run(f"git clone {repo} {name}", shell=True)
+        result = subprocess.run(f"git clone {repo} {name}", shell=True)
+        if result.returncode != 0:
+            print(f"❌ Failed to clone {name}")
+            exit(1)
     else:
         print(f"🔄 Updating {name}")
         subprocess.run("git pull", shell=True, cwd=name)
@@ -34,4 +39,3 @@ while True:
             processes[i] = (name, repo, cmd, p)
 
     time.sleep(5)
-    
