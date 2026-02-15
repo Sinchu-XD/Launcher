@@ -1,0 +1,7 @@
+Flask
+telethon
+pyrofork
+tgcrypto
+motor
+requests
+pytz
