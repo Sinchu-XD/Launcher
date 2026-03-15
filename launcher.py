@@ -2,7 +2,7 @@ import subprocess
 import os
 import time
 
-GIT_TOKEN = os.getenv("GIT_TOKEN", "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")
+GIT_TOKEN = os.getenv("GIT_TOKEN")
 bots = [
     ("Stree", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Stree", "python3 Main.py"),
     ("Paglu", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Paglu", "python3 Main.py"),
