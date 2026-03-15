@@ -3,10 +3,12 @@ import os
 import time
 
 GIT_TOKEN = os.getenv("GIT_TOKEN")
+GIT_USER = os.getenv("GIT_USER", "Sinchu-XD")
+
 bots = [
-    ("Stree", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Stree", "python3 Main.py"),
-    ("Paglu", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Paglu", "python3 Main.py"),
-    ("Posting", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Posting", "python3 Posting.py"),
+    ("Stree", f"https://{GIT_USER}:{GIT_TOKEN}@github.com/Sinchu-XD/Stree.git", "python3 Main.py"),
+    ("Paglu", f"https://{GIT_USER}:{GIT_TOKEN}@github.com/Sinchu-XD/Paglu.git", "python3 Main.py"),
+    ("Posting", f"https://{GIT_USER}:{GIT_TOKEN}@github.com/Sinchu-XD/Posting.git", "python3 Posting.py"),
 ]
 
 processes = []
