@@ -24,7 +24,7 @@ def prepare_repo(name, repo):
 
 for name, repo, cmd in bots:
     prepare_repo(name, repo)
-8
+
     print(f"🚀 Starting {name}")
     p = subprocess.Popen(cmd, shell=True, cwd=name)
     processes.append((name, repo, cmd, p))
