@@ -2,8 +2,7 @@ import subprocess
 import os
 import time
 
-GIT_TOKEN = os.getenv("GIT_TOKEN")
-
+GIT_TOKEN = os.getenv("GIT_TOKEN", "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")
 bots = [
     ("Stree", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Stree", "python3 Main.py"),
     ("Paglu", f"https://{GIT_TOKEN}@github.com/Sinchu-XD/Paglu", "python3 Main.py"),
@@ -25,7 +24,7 @@ def prepare_repo(name, repo):
 
 for name, repo, cmd in bots:
     prepare_repo(name, repo)
-
+8
     print(f"🚀 Starting {name}")
     p = subprocess.Popen(cmd, shell=True, cwd=name)
     processes.append((name, repo, cmd, p))
